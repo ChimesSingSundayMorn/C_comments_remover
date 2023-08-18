@@ -51,13 +51,13 @@ class MainWindow(QMainWindow):
     def search_files_in_dir(self):
         wait_trans_files = []
         if os.path.isfile(source_code_path) and source_code_path.lower().endswith(
-                ".c") or source_code_path.lower().endswith(".cpp") \
+                ".c") or source_code_path.lower().endswith(".cpp")or source_code_path.lower().endswith(".cc") \
                 and os.path.getsize(source_code_path) > 0:
             wait_trans_files.append(source_code_path)
             return wait_trans_files
         for file in os.listdir(source_code_path):
             remote_file_path = os.path.join(source_code_path, file)
-            if file.lower().endswith('.c') or file.lower().endswith('.cpp'):
+            if file.lower().endswith('.c') or file.lower().endswith('.cpp') or source_code_path.lower().endswith(".cc"):
                 wait_trans_files.append(remote_file_path)
 
         return wait_trans_files
@@ -81,7 +81,7 @@ class MainWindow(QMainWindow):
 
         file_dialog.setWindowTitle("选择C或CPP文件")
         file_dialog.setFileMode(QFileDialog.FileMode.ExistingFile)
-        file_dialog.setNameFilters(["(*.cpp *.c)"])
+        file_dialog.setNameFilters(["(*.cpp *.c *.cc)"])
         file_dialog.setDirectory(self.ui.source_code_path_edt.text())
 
         if file_dialog.exec_() == QFileDialog.Accepted:
