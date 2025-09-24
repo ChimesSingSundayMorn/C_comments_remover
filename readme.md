@@ -1,5 +1,5 @@
 # C_comments_remover
-
+This tool is for removing all C style comments.
 该工具用于自动删除C和C++代码的所有注释，支持批量删除
 编译原理练习。之后用python写了个小客户端
 顺便学习一下windows下dll的构建
